@@ -17,4 +17,12 @@ public class MainActivity extends AppCompatActivity {
         Intent guess = new Intent(this, GuessActivity.class);
         startActivity(guess);
     }
+    public void b_1A2B(View view){
+        Intent abguess = new Intent(this, ABguessActivity.class);
+        startActivity(abguess);
+    }
+    public void b_roll(View view){
+        Intent roll = new Intent(this, RollActivity.class);
+        startActivity(roll);
+    }
 }
