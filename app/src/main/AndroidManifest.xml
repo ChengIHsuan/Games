@@ -18,7 +18,9 @@
         </activity>
         <activity android:name=".GuessActivity" />
         <activity android:name=".ABguessActivity" />
-        <activity android:name=".RollActivity"></activity>
+        <activity android:name=".RollActivity" />
+        <activity android:name=".Get30Activity" />
+        <activity android:name=".PlayerInfoActivity"></activity>
     </application>
 
 </manifest>
