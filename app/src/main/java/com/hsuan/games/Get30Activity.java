@@ -32,6 +32,7 @@ public class Get30Activity extends AppCompatActivity {
     int times;
 
     public void get30() {
+        number.setImageResource(numbers[num]);
         times++;
         if (num == 30) {
             if ((times % 2) == 0) {
@@ -42,7 +43,6 @@ public class Get30Activity extends AppCompatActivity {
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 num = 0;
                                 times = 0;
-                                number.setImageResource(numbers[num]);
                                 player();
                             }
                         })
@@ -56,7 +56,6 @@ public class Get30Activity extends AppCompatActivity {
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 num = 0;
                                 times = 0;
-                                number.setImageResource(numbers[num]);
                                 player();
                             }
                         })
@@ -69,13 +68,12 @@ public class Get30Activity extends AppCompatActivity {
                 if ((times % 2) == 0) {
                     Log.d("Get30AC", ">30");
                     new AlertDialog.Builder(this)
-                            .setMessage("BOMB!!!Player1 WIN")
+                            .setMessage("BOMB!!!Player1  WIN")
                             .setPositiveButton("Play Again", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     num = 0;
                                     times = 0;
-                                    number.setImageResource(numbers[num]);
                                     player();
                                 }
                             })
@@ -83,13 +81,12 @@ public class Get30Activity extends AppCompatActivity {
                             .show();
                 } else {
                     new AlertDialog.Builder(this)
-                            .setMessage("BOMB!!!PLAYER2 WIN")
+                            .setMessage("BOMB!!!PLAYER2  WIN")
                             .setPositiveButton("Play Again", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     num = 0;
                                     times = 0;
-                                    number.setImageResource(numbers[num]);
                                     player();
                                 }
                             })
@@ -97,21 +94,23 @@ public class Get30Activity extends AppCompatActivity {
                             .show();
                 }
             } else {
-                number.setImageResource(numbers[num]);
                 player();
             }
         }
     }
 
     public void player() {
+        number.setImageResource(numbers[num]);
         ImageView p1 = (ImageView) findViewById(R.id.player1);
         ImageView p2 = (ImageView) findViewById(R.id.player2);
         if ((times % 2) == 0) {
-            p1.setVisibility(View.VISIBLE);
-            p2.setVisibility(View.INVISIBLE);
+//            p1.setVisibility(View.VISIBLE);   //顯示
+//            p2.setVisibility(View.INVISIBLE);   //隱藏
+            p1.setAlpha(255);   //透明度1~255，值越小越透明
+            p2.setAlpha(90);
         } else {
-            p1.setVisibility(View.INVISIBLE);
-            p2.setVisibility(View.VISIBLE);
+            p1.setAlpha(90);
+            p2.setAlpha(255);
         }
     }
 
